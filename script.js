@@ -1,16 +1,15 @@
 window.onload = function carregar(){
-    var link = document.referrer;
-    var usuario = link.substring(link.indexOf("=") + 1);
-    alert(usuario)
+    var link = window.location.href
+    var usuario = link.substring(link.indexOf("=") + 1)
     document.getElementById("nickname").value = usuario
     
 
-    var dataAtual = new Date();
-    var dia = dataAtual.getDate();
-    var mes = (dataAtual.getMonth() + 1);
-    var ano = dataAtual.getFullYear();
-    var horas = dataAtual.getHours();
-    var minutos = dataAtual.getMinutes();
+    var dataAtual = new Date()
+    var dia = dataAtual.getDate()
+    var mes = (dataAtual.getMonth() + 1)
+    var ano = dataAtual.getFullYear()
+    var horas = dataAtual.getHours()
+    var minutos = dataAtual.getMinutes()
     // Variáveis referentes à data e hora
     var horario_comeco
     var dia_comeco
