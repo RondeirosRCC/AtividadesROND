@@ -1,10 +1,56 @@
+window.onload = function carregar(){
+    var link = document.referrer;
+    var usuario = link.substring(link.indexOf("=") + 1);
+    alert(usuario)
+    document.getElementById("nickname").value = usuario
+    
+
+    var dataAtual = new Date();
+    var dia = dataAtual.getDate();
+    var mes = (dataAtual.getMonth() + 1);
+    var ano = dataAtual.getFullYear();
+    var horas = dataAtual.getHours();
+    var minutos = dataAtual.getMinutes();
+    // Variáveis referentes à data e hora
+    var horario_comeco
+    var dia_comeco
+              
+    //Ajustar formatação ao padrão utilizado nos formulários google, utilizando sempre horário no formado xx:xx e data xx/xx/xxxx
+    if (horas < 10){
+      var horario_comeco = "0" + horas + ":" + minutos
+    } 
+    if (minutos < 10) {
+      var horario_comeco = "" + horas + ":" + "0" + minutos
+    } 
+    if (horas < 10 && minutos < 10){
+      var horario_comeco = "0" + horas + ":" + "0" + minutos
+    }
+    if (horas >= 10 && minutos >= 10){
+      var horario_comeco = "" + horas + ":" + minutos
+    }
+
+    //  *********NÃO MUDAR O "VAR" DO IF PARA "LET", OU IRÁ BUGAR TODO O SISTEMA!*********
+    if (dia < 10){
+      var dia_comeco = "0" + dia + "/" + mes + "/" + ano
+    }
+    if (mes < 10){
+      var dia_comeco = dia + "/0" + mes + "/" + ano
+    }
+    if (dia < 10 && mes < 10){
+        var dia_comeco = "0" + dia + "/0" + mes + "/" + ano
+    }
+    if (dia >= 10 && mes >= 10){
+      var dia_comeco = dia + "/" + mes + "/" + ano
+    }
+    //Preencher input com hora de acesso
+    document.getElementById("horario_inicio").value = dia_comeco + " - " + horario_comeco
+}
+
 function MudarModalidade(){
     var select = document.getElementById("Modalidades");
     var opcaoTexto = select.options[select.selectedIndex].text;
 
     document.getElementById("modalidade").innerHTML = opcaoTexto
-    document.getElementById("horario_inicio").value = "" 
-    document.getElementById("nickname").value = "" 
     document.getElementById("nickaluno").value = "" 
     document.getElementById("printscreen1").value = "" 
     document.getElementById("printscreen2").value = ""
