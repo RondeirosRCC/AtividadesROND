@@ -1,10 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <title>vieira lindo</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Postagem de Atividades</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="https://i.imgur.com/mIGvZN0.png">
+    <script src="script.js"></script>
+    <script
+		src="https://code.jquery.com/jquery-3.4.1.js"
+		integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+		crossorigin="anonymous"></script>   
 </head>
+<body>
+    <header>
+        <div id="div_emblema">
+            <img src="Emblema.gif" alt="Emblema dos Organizadores de Rondas" id="EmblemaTopo">
+            <p id="TextoEmb">Organizadores de Rondas</p>
+        </div>
+    </header>
+    <main>
+        <div id="MainContent">
+            <p id="TituloPost">Postagem de Atividades</p>
+            <div id="DivMaior">
+                <div id="DivLeft">
+                    <p class="textForm">Modalidade</p>
+                    <select name="Modalidades" id="Modalidades" required onchange="MudarModalidade()">
+                        <option selected="" style="color: gray;">- Escolha uma Modalidade -</option>
+                        <option value="RD">Ronda de Divulgação</option>
+                        <option value="RR">Ronda de Recrutamento</option>
+                        <option value="RFQ">Ronda de Fechar Quartos</option>
+                        <option value="RDI">Ronda de Denunciar Infrator</option>
+                        <option value="COT">Curso Operacional Tático</option>
+                      </select> 
+                </div>
 
-<body>errei em amar dms a rcc e nao ser correspondido :(</body>
+                <div id="DivRight">
+                    <p class="textForm">Nickname</p>
+                    <input type="text" placeholder="Ex: MrJoaosso" class="campoForm" id="nickname">
+                    <span id="COT" hidden>
+                        <p class="textForm">Nickname do aluno</p>
+                        <input type="text" placeholder="Ex: Gmf" class="campoForm" id="nickaluno">
+                        <p class="textForm">Resultado</p>
+                        <form id="PegarResultado">
+                            <input type="radio" id="Aprovado" name="Mod" value="Aprovado" class="radioForm">
+                            <label for="Aprovado" class="labelForm">Aprovado</label><br>
+                            <input type="radio" id="Reprovado" name="Mod" value="Reprovado" class="radioForm">
+                            <label for="Reprovado" class="labelForm">Reprovado</label>
+                        </form>
+                        <p class="textForm">Horário de início</p>
+                        <input type="text" placeholder="Ex: 05/06/2022 - 23:16" class="campoForm" id="horario_inicio">
+                    </span>
 
+                    <span id="RDouRR" hidden>
+                        <p class="textForm">Printscreen</p>
+                        <input type="text" placeholder="Ex: https://imgur/a/xXXxX" class="campoForm" id="printscreen1">
+                    </span>
 
+                    <span id="RFQouRDI" hidden>
+                        <p class="textForm">Nick dos Infratores</p>
+                        <input type="text" placeholder="Ex: Gmf / iam_jrvieira" class="campoForm" id="nick_infratores">
+                        <p class="textForm">Printscreen</p>
+                        <input type="text" placeholder="Ex: https://imgur/a/xXXxX" class="campoForm" id="printscreen2">
+                    </span>
+                </div>      
+            </div>
+            <br>
+            <button class="botao enviar" onclick="SubForm()">Enviar</button>
+        </div>
+
+        <form id="myForm" hidden>
+            <label>modalidade</label>
+            <textarea name="modalidade" id="modalidade"></textarea>
+            <br/>
+            <label>nickname</label>
+            <textarea name="nickname" id="nick"></textarea>
+            <br/>
+            <label>aluno</label>
+		    <textarea name="aluno" id="nick_aluno"></textarea>
+		    <br/>
+            <label>resultado</label>
+            <textarea name="resultado" id="resultado_cot"></textarea>
+            <br/>
+            <label>horario_inicio</label>
+            <textarea name="horario_inicio" id="hora_inicio"></textarea>
+            <br/>
+            <label>nick_infrator</label>
+            <textarea name="nick_infrator" id="infrator"></textarea>
+            <br/>
+            <label>printscreen</label>
+            <textarea name="printscreen" id="print"></textarea>
+            <br/>
+        </form>
+    </main>
+</body>
 </html>
